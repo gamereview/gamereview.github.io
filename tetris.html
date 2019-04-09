@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/style.css"/>
+        <meta charset="utf-8"/>
+        <link rel="shortcut icon" type="image/jpg" href="images/fav.jpg"/> <!-- icone de l'onglet-->
+        <title> Game Review </title>
+        
+       
+    </head>
+    <body>
+   <!-- Début navigation reviews -->    
+<header>
+    <a href="index.html"><img id="banniere" src="images/banniere.png"/></a>
+    <nav>
+    <ul class="nav">
+    <li class="dropdown">
+        <a class="drop">1980</a>
+        <div class="dropcontent">
+        <a href="pacman.html">PacMan</a>
+        <a href="battlezone.html">Battlezone</a>
+        <a href="centipede.html">Centipede</a>
+        </div>
+        </li>
+    <li class="dropdown">
+        <a class="drop">1981</a>
+        <div class="dropcontent">
+        <a href="donkey_kong.html">Donkey Kong</a>
+        <a href="frogger.html">Frogger</a>
+        <a href="galaga.html">Galaga</a>
+        </div></li>
+    <li class="dropdown">
+        <a class="drop">1982</a>
+        <div class="dropcontent">
+        <a href="transylvania.html">Transylvania</a>
+        <a href="et.html">E.T. the Extra-Terrestrial</a>
+        </div></li>
+     <li class="dropdown">
+        <a class="drop">1983</a>
+        <div class="dropcontent">
+        <a href="mario_bros.html">Mario Bros</a>
+        <a href="dragon_s_lair.html">Dragon's Lair</a>
+        </div></li>
+    <li class="dropdown">
+        <a class="drop">1984</a>
+        <div class="dropcontent">
+        <a href="tetris.html">Tetris</a>
+        <a href="elite.html">Elite</a>
+        </div></li>
+    <li class="dropdown">
+        <a class="drop">1985</a>
+        <div class="dropcontent">
+        <a href="super_mario_bros_un.html">Super Mario Bros 1</a>
+        <a href="space_harrier.html">Space Harrier</a>
+        </div></li>
+    <li class="dropdown">
+        <a class="drop">1986</a>
+        <div class="dropcontent">
+        <a href="legend_of_zelda.html">Legend of Zelda</a>
+        <a href="castelvania.html">Castelvania</a>
+        </div></li>
+     <li class="dropdown">
+        <a class="drop">1987</a>
+        <div class="dropcontent">
+        <a href="double_dragon.html">Double Dragon</a>
+        <a href="metal_gear.html">Metal Gear</a>
+        </div></li>
+     <li class="dropdown">
+        <a class="drop">1988</a>
+        <div class="dropcontent">
+        <a href="super_mario_bros_deux.html">Super Mario Bros 2</a>
+        <a href="l_arche_du_captain_blood.html">L'Arche du Captain Blood</a>
+        </div></li>
+     <li class="dropdown">
+        <a class="drop">1989</a>
+        <div class="dropcontent">
+        <a href="simcity.html">SimCity</a>
+        <a href="prince_of_persia.html">Prince of Persia</a>
+        </div></li>
+        </ul>
+    </nav>
+        
+        </header>
+     <!-- Fin navigation reviews -->
+ <!-- Début navigation articles/fun-facts -->
+                       <aside>
+             <ul class="nav">
+    <li class="dropdown">
+        <a href="crise_jeux_videos.html">La Grande crise des jeux vidéos de 83</a></li>
+    <li><a href="vive_pac_man.html">"PUCK MAN" est mort, vive PAC-MAN</a></li>
+    <li><a href="futur_mario.html">Le futur de Mario</a></li>
+    <li><a href="consoles_venir.html">Les consoles à venir</a></li>
+    <li><a href="easter_egg_revolution.html">L'Easter Egg, une révolution dans le jeu vidéo</a></li>
+        </ul>
+        </aside>
+                <!-- Fin navigation articles/fun-facts -->
+        
+     <!-- Début article -->  
+    <section>
+        <article>
+            <h1 class="text"></h1>
+            <center><img src="images/tetris.jpg"></center>
+            <p>Tetris est un jeu vidéo développé par Alekseï Pajitnov et sorti en 1984. Il s'agit d'un jeu de puzzle dans lequel il faut former des lignes lignes à l'aide de différentes formes pour supprimer ces lignes, le but est de ne pas laisser les blocs toucher le haut de l'écran. 
+
+
+<br/>
+Très bon jeu mais répétitif et la musique entre en tête. 
+
+
+<br/>
+                
+<center>Note : <br/><img class="note" src="gif/etoile.gif"><img class="note" src="gif/etoile.gif"><img class="note" src="gif/etoile.gif">/5</center>
+</p>
+            
+        </article>
+        <!-- lecteur musique auto-->
+            <div><audio controls="controls" autoplay>
+  <source src="musique/tetris.mp3" type="audio/mp3" />
+</audio></div>
+        </section>
+           <!-- Fin article -->
+        <!-- animation titre-->
+<script>        class TextScramble {
+  constructor(el) {
+    this.el = el
+    this.chars = '!<>-_\\/[]{}—=+*^?#________'
+    this.update = this.update.bind(this)
+  }
+  setText(newText) {
+    const oldText = this.el.innerText
+    const length = Math.max(oldText.length, newText.length)
+    const promise = new Promise((resolve) => this.resolve = resolve)
+    this.queue = []
+    for (let i = 0; i < length; i++) {
+      const from = oldText[i] || ''
+      const to = newText[i] || ''
+      const start = Math.floor(Math.random() * 40)
+      const end = start + Math.floor(Math.random() * 40)
+      this.queue.push({ from, to, start, end })
+    }
+    cancelAnimationFrame(this.frameRequest)
+    this.frame = 0
+    this.update()
+    return promise
+  }
+  update() {
+    let output = ''
+    let complete = 0
+    for (let i = 0, n = this.queue.length; i < n; i++) {
+      let { from, to, start, end, char } = this.queue[i]
+      if (this.frame >= end) {
+        complete++
+        output += to
+      } else if (this.frame >= start) {
+        if (!char || Math.random() < 0.28) {
+          char = this.randomChar()
+          this.queue[i].char = char
+        }
+        output += `<span class="dud">${char}</span>`
+      } else {
+        output += from
+      }
+    }
+    this.el.innerHTML = output
+    if (complete === this.queue.length) {
+      //this.resolve()
+    } else {
+      this.frameRequest = requestAnimationFrame(this.update)
+      this.frame++
+    }
+  }
+  randomChar() {
+    return this.chars[Math.floor(Math.random() * this.chars.length)]
+  }
+}
+
+// ——————————————————————————————————————————————————
+// Example
+// ——————————————————————————————————————————————————
+
+const phrases = [
+  'Tetris'
+]
+
+const el = document.querySelector('.text')
+const fx = new TextScramble(el)
+
+let counter = 0
+const next = () => {
+  fx.setText(phrases[counter]).then(() => {
+    setTimeout(next, 800)
+  })
+  counter = (counter + 1) % phrases.length
+}
+
+next() </script>
+    </body>
+    
+     
+    <!--code boostrap du footer-->
+    
+    <div id="footer">
+    <div class="container">
+        <p class="footer-block"><a href="mentions_legales.html">Mentions légales</a> <a href="equipe_collaboratrice.html">Equipe collaboratrice</a> <a href="architecture_site.html">Architecture du site</a></p>
+    </div>
+  </div>
+    
+    <!-- fin code boostrap du footer-->
+
+</html>
